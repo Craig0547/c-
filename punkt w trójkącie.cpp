@@ -1,3 +1,4 @@
+#include<algorithm>
 #include<iostream>
 #include <cmath>
 using namespace std;
@@ -13,6 +14,17 @@ p=(a+b+c)/2;
 //wzór Herona 
 return sqrt(p*(p-a)*(p-b)*(p-c))
 }
+
+//funkcja sprawdzająca czy zmienne float są mniej więcej równe
+//credit to author
+bool approx_equal(double x, double y)
+{  
+   const double EPSILON = 1E-14;
+   if (x == 0) return fabs(y) <= EPSILON;
+   if (y == 0) return fabs(x) <= EPSILON;
+   return fabs(x - y) / max(fabs(x), fabs(y)) <= EPSILON;
+}
+
 //funkcja sprawdzaj¹ca czy pola BCD, ACD i ABD s¹ równe ABC
 bool wSrodku(int x1, int y1, int x2, int y2, int x3, int y3, int x, int y)
 {
@@ -23,7 +35,7 @@ float P2 = pole(x1, y1, x, y, x3, y3);
 float P3 = pole(x1, y1, x2, y2, x, y);
 
 
-return (P == P1 + P2 + P3);
+return approx_equal(P, P1+P2+P3);
 }
 
 
