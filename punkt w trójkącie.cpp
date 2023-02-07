@@ -5,11 +5,13 @@ using namespace std;
 //funkcja obliczaj¹ca pole trójk¹ta o danych wspó³rzêdnych
 float pole(int x1, int y1, int x2, int y2, int x3, int y3)
 {
-int bok1, bok2, bok3;
-bok1=sqrt((x2-x1)^2+(y2-y1)^2);
-bok2=sqrt((x3-x2)^2+(y3-y2)^2);
-bok3=sqrt((x1-x3)^2+(y1-y3)^2);
-return (bok1+bok2+bok3)/2;
+int a, b, c, p;
+a=sqrt((x2-x1)^2+(y2-y1)^2);
+b=sqrt((x3-x2)^2+(y3-y2)^2);
+c=sqrt((x1-x3)^2+(y1-y3)^2);
+p=(a+b+c)/2;
+//wzór Herona 
+return sqrt(p*(p-a)*(p-b)*(p-c))
 }
 //funkcja sprawdzaj¹ca czy pola BCD, ACD i ABD s¹ równe ABC
 bool wSrodku(int x1, int y1, int x2, int y2, int x3, int y3, int x, int y)
