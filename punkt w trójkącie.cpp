@@ -2,12 +2,16 @@
 #include <cmath>
 using namespace std;
 
-//funkcja obliczaj¹ca pole trójk¹ta o danych wspó³rzêdnych
+//funkcja obliczajÂ¹ca pole trÃ³jkÂ¹ta o danych wspÃ³Â³rzÃªdnych
 float pole(int x1, int y1, int x2, int y2, int x3, int y3)
 {
-return abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0);
+int bok1, bok2, bok3;
+bok1=sqrt((x2-x1)^2+(y2-y1)^2);
+bok2=sqrt((x3-x2)^2+(y3-y2)^2);
+bok3=sqrt((x1-x3)^2+(y1-y3)^2);
+return (bok1+bok2+bok3)/2;
 }
-//funkcja sprawdzaj¹ca czy pola BCD, ACD i ABD s¹ równe ABC
+//funkcja sprawdzajÂ¹ca czy pola BCD, ACD i ABD sÂ¹ rÃ³wne ABC
 bool wSrodku(int x1, int y1, int x2, int y2, int x3, int y3, int x, int y)
 {
 
